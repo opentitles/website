@@ -1,11 +1,11 @@
 ---
-title: API Reference
+title: OpenTitles
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='https://twitter.com/fdebijl' rel='noopener'>Floris on Twitter</a>
+  - <a href='https://github.com/opentitles' rel='noopener' target="_blank">OpenTitles on Github</a>
 
 includes:
   - errors
@@ -17,9 +17,9 @@ code_clipboard: true
 
 # Introduction
 
-OpenTitles is a browser addon that tracks changes to over forty news sites, such as nos.nl, nytimes.com and theguardian.com. This addon adds a button to the headlines on these sites, which when clicked, will show all recent changes to the title of this article.
+OpenTitles is a browser addon that tracks changes to over forty news sites, such as nos.nl, nytimes.com and theguardian.com. This addon adds a button to the headlines on these sites, which when clicked, will show all recent changes to the title of this article. Additionally, OpenTitles is available as an API and as a daily database dump that may be used for research purposes.
 
-Additionally, OpenTitles is available as an API and as a daily database dump that may be used for research purposes.
+OpenTitles is made by Floris de Bijl
 
 # Technical Overview
 
@@ -34,223 +34,22 @@ Furthermore, RSS feeds usually only contain a few dozen articles, so sites with 
 
 A more robust version of OpenTitles would still use the RSS feed for indexing articles, but manually visit those articles for a set period of time to check for new titles. This is vastly more complex than the current approach and my time is very limited, so a rewrite using this technique is not on the roadmap at this point.
 
-The source code for OpenTitles is available on Github. The project is split into five repositories: this website, the scraper, the API server, the definition and the client (i.e. the browser addon).
+The source code for OpenTitles is available on <a href="https://github.com/opentitles" rel="noopener" target="_blank">Github</a>. The project is split into five repositories: this website, the scraper, the API server, the definition and the client (i.e. the browser addon).
 
 All components are made with Typescript, with the exception of this website. 
 
 # Database Dump
 
-Every 24 hours (Central European Time) a new database dump is generated using mongoexport and made available through https://dump.opentitles.info/. 
+Every 24 hours (Central European Time) a new database dump is generated using mongoexport and made available through <a href="https://dump.opentitles.info/" rel="noopener" target="_blank">https://dump.opentitles.info/</a>.
 
 # API
 
-> To authorize, use this code:
+_To be expanded_
 
-```ruby
-require 'kittn'
+The entry point for the API is
+<a href="https://api.opentitles.info/v2/country" rel="noopener" target="_blank">https://api.opentitles.info/v2/country</a>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+The path to an article is as follows
+`https://api.opentitles.info/v2/country/%country%/org/%org/article/%articleId%`
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+For example: <a href="https://api.opentitles.info/v2/country/nl/org/NOS/article/2353584" rel="noopener" target="_blank">https://api.opentitles.info/v2/country/nl/org/NOS/article/2353584</a>
