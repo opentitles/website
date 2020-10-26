@@ -10,7 +10,7 @@ toc_footers:
 includes:
   - errors
 
-search: true
+search: false
 
 code_clipboard: true
 ---
@@ -19,7 +19,11 @@ code_clipboard: true
 
 OpenTitles is a browser addon that tracks changes to over forty news sites, such as nos.nl, nytimes.com and theguardian.com. This addon adds a button to the headlines on these sites, which when clicked, will show all recent changes to the title of this article. Additionally, OpenTitles is available as an API and as a daily database dump that may be used for research purposes.
 
-OpenTitles is made by Floris de Bijl
+<p align="center">
+  <a href="https://chrome.google.com/webstore/detail/opentitles/ipcpballelfolmocdhfjijgmbljachog" rel="noopener" target="_blank"><img height="50" style="margin-right: 1.5em;" src="images/chrome.png" alt="Download on Chrome Webstore"></a><a href="https://addons.mozilla.org/en-GB/firefox/addon/opentitles/" rel="noopener" target="_blank"><img height="50" src="images/firefox.png" alt="Download for Firefox"></a>
+</p>
+
+_OpenTitles is made by [Floris de Bijl](https://twitter.com/fdebijl)_
 
 # Technical Overview
 
@@ -40,7 +44,7 @@ All components are made with Typescript, with the exception of this website.
 
 # Database Dump
 
-Every 24 hours (Central European Time) a new database dump is generated using mongoexport and made available through <a href="https://dump.opentitles.info/" rel="noopener" target="_blank">https://dump.opentitles.info/</a>.
+Every 24 hours (Central European Time) a new database dump is generated using mongoexport and made available through <a href="https://dump.opentitles.info/" rel="noopener" target="_blank">https://dump.opentitles.info/</a>. This data is free to use for any purpose.
 
 # API
 
